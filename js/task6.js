@@ -1,23 +1,21 @@
 'use strict';
 
 let total = 0;
+let inputNumber;
 
-while (true) {
-    let inputNumber = prompt('Введите число!');
+do {
+    inputNumber = prompt('Введите число!');
 
+    if (inputNumber !== null) {
 
-    if (inputNumber === null) {
-        console.log('Отменено пользователем!');
-        break;
+        if (Number.isNaN(+inputNumber)) {
+            alert('Было введено не число! Введите число пожалуйста!');
+            continue;
+        }
+
+        total += +inputNumber;
     }
 
-    inputNumber = Number(inputNumber);
-
-    if (!!inputNumber && Number.isInteger(inputNumber)) {
-        total += inputNumber;
-    } else {
-        alert('Было введено не число! Введите число пожалуйста!');
-    }
-}
+} while (inputNumber !== null);
 
 alert(`Общая сумма чисел равна ${total}.`);
